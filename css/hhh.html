@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>British Education Network</title>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- bootstrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<style>
+    .welcome-box {
+    height: 100vh;
+    background: var(--background-gradient-color);
+    position: relative;
+}
+
+.welcome-box img{
+    position: absolute;
+    width: 500px;
+    bottom: 0;
+    right: 50px;
+}
+</style>
+</head>
+
+<body>
+    <div class="whole-container">
+        <nav>
+            <div class="nav-1">
+                <div class="social-icon">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-whatsapp"></i></a>
+                </div>
+                <div class="register">
+                    <a href="#">
+                        <h6>Login</h6>
+                    </a>
+                    <a href="#">
+                        <h6>Signin</h6>
+                    </a>
+                </div>
+            </div>
+            <div class="nav-2">
+                <div class="logo">
+                    <img src="image/logo/Purbanchal-British-Education.png" alt="">
+                    <div class="text-logo-holder">
+                        <div class="text-logo">
+                            <h4>
+                                <span style="color: var(--red-color);">British</span>
+                                <span>Education</span>
+                            </h4>
+                            <hr>
+                            <h2>Network</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="#"><i class="bi bi-house" id="links-icon"></i>Home</a></li>
+                        <li><a href="#"><i class="bi bi-info-circle" id="links-icon"></i>About Us</a></li>
+                        <li><a href="#"><i class="bi bi-book" id="links-icon"></i>Courses</a></li>
+                        <li><a href="#"><i class="bi bi-calendar-event" id="links-icon"></i>Events</a></li>
+                        <li><a href="#"><i class="bi bi-chat" id="links-icon"></i>Contact Us</a></li>
+                    </ul>
+                    <div class="responsive-register">
+                        <a href="#">
+                            <h6>Login</h6>
+                        </a>
+                        <a href="#">
+                            <h6>Signin</h6>
+                        </a>
+                    </div>
+                </div>
+                <div class="responsive-links">
+                    <label for="menu-checkbox">
+                        <i class="bi bi-justify" id="bar"></i>
+                        <i class="bi bi-x-lg" id="close"></i>
+                    </label>
+                    <input type="checkbox" id="menu-checkbox">
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+           <div class="welcome-box">
+            <img src="image/female-student-with-books-paperworks-removebg-preview.png" alt="">
+           </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuCheckbox = document.getElementById("menu-checkbox");
+        const barIcon = document.getElementById("bar");
+        const closeIcon = document.getElementById("close");
+        const linksContainer = document.querySelector(".links");
+
+        function toggleIconsAndLinksPosition() {
+            if (menuCheckbox.checked) {
+                barIcon.style.display = "none";
+                closeIcon.style.display = "inline";
+                linksContainer.style.left = "0px";
+            } else {
+                barIcon.style.display = "inline";
+                closeIcon.style.display = "none";
+                linksContainer.style.left = "-250px";
+            }
+        }
+
+        menuCheckbox.addEventListener("change", toggleIconsAndLinksPosition);
+        // Initially set the icons and links position based on the checkbox state
+        toggleIconsAndLinksPosition();
+    });
+</script>
+<script>
+    // Get the nav-2 element
+    const nav2 = document.querySelector('.nav-2');
+
+    // Store the initial offset of nav-2 from the top of the viewport
+    const nav2InitialOffset = nav2.offsetTop;
+
+    // Add a scroll event listener to the window
+    window.addEventListener('scroll', () => {
+        // Get the current scroll position
+        const scrollPosition = window.scrollY;
+
+        // Check if the current scroll position is greater than or equal to the initial offset + 300 pixels
+        if (scrollPosition >= nav2InitialOffset + 300) {
+            // If the scroll position is greater than or equal to the initial offset + 300 pixels, fix the nav-2
+            nav2.style.position = 'fixed';
+            nav2.style.top = '0';
+            nav2.style.background = 'var(--navber-background-color)'; // Set background color with var(--primary-color)
+        } else {
+            // If the scroll position is less than the initial offset + 300 pixels, revert the nav-2 position
+            nav2.style.position = 'relative';
+            nav2.style.top = '';
+            nav2.style.background = 'transparent'; // Make background color transparent
+        }
+    });
+</script>
+
+
+
+</html>
