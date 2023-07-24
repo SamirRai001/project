@@ -1,7 +1,4 @@
-.content hr {
-    margin: 0px 50px;
-}
-
+/********************* welcome div starts ******************/
 .welcome-box {
     height: 100vh;
     background: var(--background-gradient-color);
@@ -10,7 +7,7 @@
     max-height: 700px;
 }
 
-.welcome-box span{
+.welcome-box span {
     background-color: var(--primary-transparent);
     position: absolute;
     width: 100%;
@@ -18,56 +15,93 @@
     z-index: 77;
 }
 
-#girl{
+#girl {
     position: absolute;
     width: 500px;
     bottom: 0;
-    right: 2%;
+    right: -100%;
     z-index: 77;
+    animation: girl 2s forwards;
 }
 
-.welcome-text{
+@keyframes girl {
+
+    0% {
+        right: -100%;
+    }
+
+    100% {
+        right: 2%;
+    }
+}
+
+.welcome-text {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-60%, -50%);
     color: var(--lite-color);
     z-index: 88;
+    animation: welcome-text 0.6s forwards;
+    animation-delay: 2s;
+    opacity: 0;
+}
+
+@keyframes welcome-text {
+    0% {
+        opacity: 0;
+        transform: translate(-60%, -50%) scaleY(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-60%, -50%) scaleY(1);
+    }
 }
 
 @media only screen and (max-width: 1200px) {
-    .welcome-box{
+    .welcome-box {
         max-height: 500px;
     }
 
-    #girl{
+    #girl {
         width: 300px;
     }
 }
 
 @media only screen and (max-width: 800px) {
-    .welcome-text{
+    .welcome-text {
         transform: translate(-70%, -50%);
     }
 }
 
 @media only screen and (max-width: 700px) {
-    .welcome-box{
-        max-height: 470px;    
+    .welcome-box {
+        max-height: 470px;
     }
 
-    .welcome-text{
+    .welcome-text {
         left: 0;
-        transform: translate(-0%, -50%);
         max-width: 400px;
         padding: 0px 20px;
         width: 100%;
+    }
+
+    @keyframes welcome-text {
+        0% {
+            opacity: 0;
+            transform: translate(-0%, -50%) scaleY(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translate(-0%, -50%) scaleY(1);
+        }
     }
 }
 
 @media only screen and (max-width: 400px) {
 
-    .welcome-text{
+    .welcome-text {
         width: 300px;
         padding: 0px 20px;
         width: 100%;
@@ -75,7 +109,7 @@
 }
 
 /****************** animation box *******************/
-.welcome-background-animation{
+.welcome-background-animation {
     width: 1000px;
     height: 100%;
     position: absolute;
@@ -184,3 +218,79 @@
     }
 
 }
+
+/********************* welcome div ends ******************/
+
+/********************* feature div starts ******************/
+.features-holder {
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 50px;
+    padding: 0px 5%;
+    color: var(--primary-color);
+}
+
+.features {
+    transition: transform 0.3s ease;
+}
+
+.features:hover {
+    transform: translateY(-5px);
+}
+
+.features h4 {
+    text-align: center;
+    margin: 8px 0px;
+}
+
+.features p {
+    text-align: center;
+}
+
+.feature-icon {
+    display: flex;
+    justify-content: center;
+}
+
+.feature-icon img {
+    height: 80px;
+    transform: perspective(1000px) rotateY(0deg);
+    /* Initially not flipped */
+    transition: transform 1s ease;
+}
+
+.flipped .feature-icon img {
+    transform: perspective(1000px) rotateY(180deg);
+}
+
+
+.read-more-feature {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .features-holder {
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .features-holder {
+        margin-bottom: 20px;
+    }
+
+    .features p{
+        display: none;
+    }
+
+    .read-more-feature {
+        display: none;
+    }
+}
+
+/********************* feature div ends ******************/

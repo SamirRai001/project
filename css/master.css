@@ -59,20 +59,59 @@ p {
     font-size: 16px;
 }
 
-.btn {
+.content hr {
+    border: 1px solid;
+    margin: 50px 5%;
+}
+
+.btn,
+.btn-2{
     display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
     color: var(--lite-color);
     background-color: var(--button-color);
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.2s;
 }
 
+.btn {   
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.btn-2 {
+    padding: 10px 15px;
+}
+
 /* Button hover animation */
-.btn:hover {
+.btn:hover,
+.btn-2:hover {
     background-color: #0056b3;
     transform: scale(1.05);
+}
+
+.title {
+    text-align: center;
+    margin: 50px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .title {
+        margin: 30px 0px;
+    }
+
+    .content hr{
+        margin: 30px 5%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .title {
+        margin: 20px 0px;
+    }
+
+    .content hr{
+        margin: 20px 5%;
+    }
 }
 
 /* whole content holder */
@@ -282,6 +321,8 @@ nav {
 /************************* content starts ************************/
 .content {
     margin-top: -80px;
+    width: 100%;
+    position: relative;
 }
 
 @media only screen and (max-width: 768px) {
@@ -326,7 +367,7 @@ footer hr {
     color: var(--lite-color);
 }
 
-.footer-logo{
+.footer-logo {
     height: 50px;
     margin-right: 10px;
 }
@@ -341,7 +382,7 @@ footer hr {
     justify-content: space-between;
 }
 
-.quick-link li{
+.quick-link li {
     width: 49%;
 }
 
@@ -365,7 +406,7 @@ footer hr {
     footer hr {
         margin: 0px 20px;
     }
-    
+
     .footer-content {
         padding: 20px 20px;
         gap: 20px;
